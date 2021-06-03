@@ -24,12 +24,9 @@ NANOMSG_COMMIT="096998834451219ee7813d8977f6a4027b0ccb43"      # Jan 10, 2016 1.
 NNPY_COMMIT="d8f260a176212bfe5f6626942c487b7d90842414"         # Feb  9, 2018 master-----Bump version to 1.4.2
 OVS_COMMIT="fdd82b2318dd266e39e831995deb17aa50900d85"          # Apr 14, 2021 branch-2.14
 MININET_COMMIT="57294d013e780cccc6b4b9af151906b382c4d8a7"      # Mar 29, 2021 master
-DPDK_COMMIT="v20.11" # "b1d36cf828771e28eb0130b59dcf606c2a0bc94d"         # Nov 28, 2020 branch-v20.11
 
 #Get the number of cores to speed up the compilation process
 NUM_CORES=`grep -c ^processor /proc/cpuinfo`
-
-git clone https://github.com/faucetsdn/ryu.git
 
 # ------------------------------------------- OVS ------------------------------------------- #
 sudo apt-get install libssl1.1 libcap-ng-dev libcap-ng0 libcap-ng-utils autoconf automake libtool wget flake8 netcat curl tftp netstat-nat -y
