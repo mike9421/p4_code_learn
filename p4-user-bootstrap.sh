@@ -45,24 +45,24 @@ source /home/.bashrc
 cd $p4
 
 # ------------------------------------------- DPDK ------------------------------------------- #
-sudo apt-get update && sudo apt-get install meson ninja-build python3-pyelftools build-essential libnuma-dev libarchive13 libarchive-dev libelf-dev -y
-git clone https://github.com/DPDK/dpdk.git
-cd dpdk
-git checkout ${DPDK_COMMIT}
-export DPDK_DIR=`pwd`
-export DPDK_BUILD=$DPDK_DIR/build
-meson -Dexamples=all build
-ninja -C build
-sudo ninja -C build install
-sudo ldconfig
-pkg-config --modversion libdpdk
+# sudo apt-get update && sudo apt-get install meson ninja-build python3-pyelftools build-essential libnuma-dev libarchive13 libarchive-dev libelf-dev -y
+# git clone https://github.com/DPDK/dpdk.git
+# cd dpdk
+# git checkout ${DPDK_COMMIT}
+# export DPDK_DIR=`pwd`
+# export DPDK_BUILD=$DPDK_DIR/build
+# meson -Dexamples=all build
+# ninja -C build
+# sudo ninja -C build install
+# sudo ldconfig
+# pkg-config --modversion libdpdk
 
-sudo modprobe uio_pci_generic vfio-pci
+# sudo modprobe uio_pci_generic vfio-pci
 
-sudo mkdir -p /dev/hugepages
-sudo mountpoint -q /dev/hugepages || sudo mount -t hugetlbfs nodev /dev/hugepages
-echo 1024 | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-sudo build/app/dpdk-testpmd -c7 --vdev=net_pcap0,iface=eth0 --vdev=net_pcap1,iface=eth1 -- -i --nb-cores=2 --nb-ports=2 --total-num-mbufs=2048
+# sudo mkdir -p /dev/hugepages
+# sudo mountpoint -q /dev/hugepages || sudo mount -t hugetlbfs nodev /dev/hugepages
+# echo 1024 | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+# sudo build/app/dpdk-testpmd -c7 --vdev=net_pcap0,iface=eth0 --vdev=net_pcap1,iface=eth1 -- -i --nb-cores=2 --nb-ports=2 --total-num-mbufs=2048
 
 
 # ------------------------------------------- Mininet ------------------------------------------- #
