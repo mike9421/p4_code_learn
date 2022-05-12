@@ -8,7 +8,7 @@ alias pip=pip3
 p4=/home/`whoami`/P4
 mkdir -p /home/`whoami`/P4 && cd $p4
 
-sudo apt-get update -y && sudo apt-get install python3 python3-pip-y
+sudo apt-get update -y && sudo apt-get install python3 python3-pip -y
 
 # Print script commands and exit on errors.
 set -xe
